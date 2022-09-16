@@ -1,0 +1,133 @@
+<html>
+
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    let internalView = true;
+    google.charts.load('current', { 'packages': ['gantt', 'timeline'] });
+    google.charts.setOnLoadCallback(loadTimeline);
+
+    var q3_22 = [new Date(2022, 6, 1), new Date(2022, 9, 1)];
+    var q4_22 = [new Date(2022, 9, 1), new Date(2022, 12, 1)];
+    var q1_23 = [new Date(2023, 0, 1), new Date(2023, 3, 1)];
+    var q2_23 = [new Date(2023, 3, 1), new Date(2023, 6, 1)];
+    var q3_23 = [new Date(2023, 6, 1), new Date(2023, 9, 1)];
+    var q4_23 = [new Date(2023, 9, 1), new Date(2023, 12, 1)];
+
+    function getQuarters() {
+      return [
+        ['Quarter', '2022 Q3', ...q3_22],
+        ['Quarter', '2022 Q4', ...q4_22],
+        ['Quarter', '2023 Q1', ...q1_23],
+        ['Quarter', '2023 Q2', ...q2_23],
+        ['Quarter', 'Future Development', ...q3_23]
+      ];
+    }
+
+    function getCycles() {
+      var cycle_27 = [new Date(2022, 7, 24), new Date(2022, 8, 13)];
+      var cycle_28 = [new Date(2022, 8, 14), new Date(2022, 9, 4)];
+      var cycle_29 = [new Date(2022, 9, 5), new Date(2022, 9, 25)];
+      var cycle_30 = [new Date(2022, 9, 26), new Date(2022, 10, 15)];
+      var cycle_31 = [new Date(2022, 10, 16), new Date(2022, 11, 6)];
+
+      var cycle_32 = [new Date(2022, 11, 7), new Date(2022, 11, 27)];
+      var cycle_33 = [new Date(2022, 11, 28), new Date(2023, 0, 17)];
+      var cycle_34 = [new Date(2023, 0, 18), new Date(2023, 1, 7)];
+      var cycle_35 = [new Date(2023, 1, 8), new Date(2023, 1, 28)];
+      var cycle_36 = [new Date(2023, 2, 1), new Date(2023, 2, 21)];
+      var cycle_37 = [new Date(2023, 2, 22), new Date(2023, 3, 11)];
+      var cycle_38 = [new Date(2023, 3, 12), new Date(2023, 4, 2)];
+      var cycle_39 = [new Date(2023, 4, 3), new Date(2023, 4, 23)];
+      var cycle_40 = [new Date(2023, 4, 24), new Date(2023, 5, 13)];
+      var cycle_41 = [new Date(2023, 5, 14), new Date(2023, 6, 4)];
+
+      return [
+        ['Cycle', 'C 27', ...cycle_27],
+        ['Cycle', 'C 28', ...cycle_28],
+        ['Cycle', 'C 29', ...cycle_29],
+        ['Cycle', 'C 30', ...cycle_30],
+        ['Cycle', 'C 31', ...cycle_31],
+        ['Cycle', 'C 32', ...cycle_32],
+        ['Cycle', 'C 33', ...cycle_33],
+        ['Cycle', 'C 34', ...cycle_34],
+        ['Cycle', 'C 35', ...cycle_35],
+        ['Cycle', 'C 36', ...cycle_36],
+        ['Cycle', 'C 37', ...cycle_37],
+        ['Cycle', 'C 38', ...cycle_38],
+        ['Cycle', 'C 39', ...cycle_39],
+        ['Cycle', 'C 40', ...cycle_40],
+        ['Cycle', 'C 41', ...cycle_41],
+
+      ];
+    }
+
+    function showFundingChoices() {
+      return [
+        ['Funding Choices', 'Deploy Supertab Branding', new Date(2022, 8, 19), new Date(2022, 8, 24)],
+        ['Funding Choices', 'PIX', new Date(2022, 8, 19), new Date(2022, 09, 31)],
+        ['Funding Choices', 'Experiment Control', ...q4_22],
+        ['Funding Choices', 'Metering Control', ...q4_22],
+        ['Funding Choices', 'OW Integration w/ Adsense', ...q1_23],
+        ['Funding Choices', 'Payouts (Legal/PRD)', ...q3_22],
+        ['Funding Choices', 'MultiCurrency Support', ...q3_23],
+        ['Funding Choices', 'Offerwall Customization', ...q3_23],
+      ];
+    }
+
+    function showSuperTabExternal() {
+      return [
+        ['Supertab', 'Supertab Updates', new Date(2022, 8, 9), new Date(2022, 8, 17)],
+        ['Supertab', 'Streamlined Onboarding', new Date(2022, 7, 1), new Date(2022, 9, 15)],
+        ['Supertab', 'Customized Offerings', new Date(2022, 8, 14), new Date(2022, 9, 25)],
+        ['Supertab', 'Subdomain Inheritance', ...q4_22],
+        ['Supertab', 'Subscriptions PRD/Discovery', ...q4_22],
+        ['Supertab', 'Payouts (Reporting)', ...q4_22],
+        ['Supertab', 'Payouts (Money transfer)', ...q1_23],
+        ['Supertab', 'MultiCurrency Support', ...q3_23],
+        ['Supertab', 'Offerwall Customization', ...q3_23],
+        ['Supertab', 'MCM accounts', ...q3_23],
+      ];
+    }
+
+    function showSuperTabInternal() {
+      return [
+        ['Supertab', 'CRM / Admin Tools Development', ...q2_23],
+      ];
+    }
+
+    function loadTimeline() {
+      var container = document.getElementById('timeline');
+      var chart = new google.visualization.Timeline(container);
+      var dataTable = new google.visualization.DataTable();
+
+      dataTable.addColumn({ type: 'string', id: 'Who' });
+      dataTable.addColumn({ type: 'string', id: 'Name' });
+      dataTable.addColumn({ type: 'date', id: 'Start' });
+      dataTable.addColumn({ type: 'date', id: 'End' });
+      dataTable.addRows(getQuarters());
+      if (internalView) {
+        dataTable.addRows(getCycles());
+        dataTable.addRows(showSuperTabInternal());
+      }
+      dataTable.addRows(showSuperTabExternal());
+      dataTable.addRows(showFundingChoices());
+
+      var options = {
+        timeline: { groupByRowLabel: true }
+      };
+
+      chart.draw(dataTable, options);
+    }
+
+
+
+  </script>
+</head>
+
+<body>
+  <h3>Priority Timeline</h3>
+  <div id="timeline" style="height: 600px;" />
+</body>
+
+</html>
