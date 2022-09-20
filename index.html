@@ -62,6 +62,14 @@
       ];
     }
 
+    function showJointRow() {
+      return [
+        ['Supertab + FC', 'Deploy Supertab Branding', new Date(2022, 8, 19), new Date(2022, 8, 24)],
+        ['Supertab + FC', 'MultiCurrency Support', ...q3_23],
+        ['Supertab + FC', 'Offerwall Customization', ...q3_23],
+      ];
+    }
+
     function showFundingChoices() {
       return [
         ['Funding Choices', 'Deploy Supertab Branding', new Date(2022, 8, 19), new Date(2022, 8, 24)],
@@ -70,8 +78,6 @@
         ['Funding Choices', 'Metering Control', ...q4_22],
         ['Funding Choices', 'OW Integration w/ Adsense', ...q1_23],
         ['Funding Choices', 'Payouts (Legal/PRD)', ...q3_22],
-        ['Funding Choices', 'MultiCurrency Support', ...q3_23],
-        ['Funding Choices', 'Offerwall Customization', ...q3_23],
       ];
     }
 
@@ -79,13 +85,11 @@
       return [
         ['Supertab', 'Supertab Updates', new Date(2022, 8, 9), new Date(2022, 8, 17)],
         ['Supertab', 'Streamlined Onboarding', new Date(2022, 7, 1), new Date(2022, 9, 15)],
-        ['Supertab', 'Customized Offerings', new Date(2022, 8, 14), new Date(2022, 9, 25)],
+        ['Supertab', 'Customized Publisher Offerings', new Date(2022, 8, 14), new Date(2022, 9, 25)],
         ['Supertab', 'Subdomain Inheritance', ...q4_22],
         ['Supertab', 'Subscriptions PRD/Discovery', ...q4_22],
         ['Supertab', 'Payouts (Reporting)', ...q4_22],
         ['Supertab', 'Payouts (Money transfer)', ...q1_23],
-        ['Supertab', 'MultiCurrency Support', ...q3_23],
-        ['Supertab', 'Offerwall Customization', ...q3_23],
         ['Supertab', 'MCM accounts', ...q3_23],
       ];
     }
@@ -93,6 +97,7 @@
     function showSuperTabInternal() {
       return [
         ['Supertab', 'CRM / Admin Tools Development', ...q2_23],
+        ['Supertab', 'Reactification Contribute.to', ...q2_23],
       ];
     }
 
@@ -112,6 +117,7 @@
       }
       dataTable.addRows(showSuperTabExternal());
       dataTable.addRows(showFundingChoices());
+      dataTable.addRows(showJointRow());
 
       var options = {
         timeline: { groupByRowLabel: true }
