@@ -58,46 +58,44 @@
         ['Cycle', 'C 39', ...cycle_39],
         ['Cycle', 'C 40', ...cycle_40],
         ['Cycle', 'C 41', ...cycle_41],
-
       ];
     }
 
     function showJointRow() {
       return [
-        ['Supertab + FC', 'Deploy Supertab Branding', new Date(2022, 8, 19), new Date(2022, 8, 24)],
+        ['Supertab + FC', 'Deploy Supertab Branding', new Date(2022, 8, 9), new Date(2022, 8, 24)],
+        ['Supertab + FC', 'Payouts (Legal/PRD)', ...q3_22],
+        ['Supertab + FC', 'Payouts (Reporting)', ...q4_22],
+        ['Supertab + FC', 'Payouts (Money transfer)', ...q1_23],
         ['Supertab + FC', 'MultiCurrency Support', ...q3_23],
         ['Supertab + FC', 'Offerwall Customization', ...q3_23],
+        ['Supertab + FC', 'MCM accounts', ...q3_23],
       ];
     }
 
     function showFundingChoices() {
       return [
-        ['Funding Choices', 'Deploy Supertab Branding', new Date(2022, 8, 19), new Date(2022, 8, 24)],
         ['Funding Choices', 'PIX', new Date(2022, 8, 19), new Date(2022, 09, 31)],
         ['Funding Choices', 'Experiment Control', ...q4_22],
         ['Funding Choices', 'Metering Control', ...q4_22],
-        ['Funding Choices', 'OW Integration w/ Adsense', ...q1_23],
-        ['Funding Choices', 'Payouts (Legal/PRD)', ...q3_22],
+        ['Funding Choices', 'OW Integration w/ Adsense', ...q2_23],
       ];
     }
 
     function showSuperTabExternal() {
       return [
-        ['Supertab', 'Supertab Updates', new Date(2022, 8, 9), new Date(2022, 8, 17)],
-        ['Supertab', 'Streamlined Onboarding', new Date(2022, 7, 1), new Date(2022, 9, 15)],
+        ['Supertab', 'Streamlined Onboarding (AMO)', new Date(2022, 7, 1), new Date(2022, 9, 15)],
         ['Supertab', 'Customized Publisher Offerings', new Date(2022, 8, 14), new Date(2022, 9, 25)],
         ['Supertab', 'Subdomain Inheritance', ...q4_22],
         ['Supertab', 'Subscriptions PRD/Discovery', ...q4_22],
-        ['Supertab', 'Payouts (Reporting)', ...q4_22],
-        ['Supertab', 'Payouts (Money transfer)', ...q1_23],
-        ['Supertab', 'MCM accounts', ...q3_23],
+
       ];
     }
 
     function showSuperTabInternal() {
       return [
+        ['Supertab', 'Reactification Contribute.to', ...q1_23],
         ['Supertab', 'CRM / Admin Tools Development', ...q2_23],
-        ['Supertab', 'Reactification Contribute.to', ...q2_23],
       ];
     }
 
@@ -120,7 +118,9 @@
       dataTable.addRows(showJointRow());
 
       var options = {
-        timeline: { groupByRowLabel: true }
+        timeline: { groupByRowLabel: true, barLabelStyle: { fontSize: 14 }, },
+
+
       };
 
       chart.draw(dataTable, options);
