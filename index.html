@@ -7,12 +7,30 @@
     google.charts.load('current', { 'packages': ['gantt', 'timeline'] });
     google.charts.setOnLoadCallback(loadTimeline);
 
-    var q3_22 = [new Date(2022, 6, 1), new Date(2022, 9, 1)];
-    var q4_22 = [new Date(2022, 9, 1), new Date(2022, 12, 1)];
-    var q1_23 = [new Date(2023, 0, 1), new Date(2023, 3, 1)];
-    var q2_23 = [new Date(2023, 3, 1), new Date(2023, 6, 1)];
-    var q3_23 = [new Date(2023, 6, 1), new Date(2023, 9, 1)];
-    var q4_23 = [new Date(2023, 9, 1), new Date(2023, 12, 1)];
+    const start = 0;
+    const end = 1;
+    const q3_22 = [new Date(2022, 6, 1), new Date(2022, 9, 1)];
+    const q4_22 = [new Date(2022, 9, 1), new Date(2022, 12, 1)];
+    const q1_23 = [new Date(2023, 0, 1), new Date(2023, 3, 1)];
+    const q2_23 = [new Date(2023, 3, 1), new Date(2023, 6, 1)];
+    const q3_23 = [new Date(2023, 6, 1), new Date(2023, 9, 1)];
+    const q4_23 = [new Date(2023, 9, 1), new Date(2023, 12, 1)];
+
+    const cycle_27 = [new Date(2022, 7, 24), new Date(2022, 8, 13)];
+    const cycle_28 = [new Date(2022, 8, 14), new Date(2022, 9, 4)];
+    const cycle_29 = [new Date(2022, 9, 5), new Date(2022, 9, 25)];
+    const cycle_30 = [new Date(2022, 9, 26), new Date(2022, 10, 15)];
+    const cycle_31 = [new Date(2022, 10, 16), new Date(2022, 11, 6)];
+    const cycle_32 = [new Date(2022, 11, 7), new Date(2022, 11, 27)];
+    const cycle_33 = [new Date(2022, 11, 28), new Date(2023, 0, 17)];
+    const cycle_34 = [new Date(2023, 0, 18), new Date(2023, 1, 7)];
+    const cycle_35 = [new Date(2023, 1, 8), new Date(2023, 1, 28)];
+    const cycle_36 = [new Date(2023, 2, 1), new Date(2023, 2, 21)];
+    const cycle_37 = [new Date(2023, 2, 22), new Date(2023, 3, 11)];
+    const cycle_38 = [new Date(2023, 3, 12), new Date(2023, 4, 2)];
+    const cycle_39 = [new Date(2023, 4, 3), new Date(2023, 4, 23)];
+    const cycle_40 = [new Date(2023, 4, 24), new Date(2023, 5, 13)];
+    const cycle_41 = [new Date(2023, 5, 14), new Date(2023, 6, 4)];
 
     function getQuarters() {
       return [
@@ -25,23 +43,6 @@
     }
 
     function getCycles() {
-      var cycle_27 = [new Date(2022, 7, 24), new Date(2022, 8, 13)];
-      var cycle_28 = [new Date(2022, 8, 14), new Date(2022, 9, 4)];
-      var cycle_29 = [new Date(2022, 9, 5), new Date(2022, 9, 25)];
-      var cycle_30 = [new Date(2022, 9, 26), new Date(2022, 10, 15)];
-      var cycle_31 = [new Date(2022, 10, 16), new Date(2022, 11, 6)];
-
-      var cycle_32 = [new Date(2022, 11, 7), new Date(2022, 11, 27)];
-      var cycle_33 = [new Date(2022, 11, 28), new Date(2023, 0, 17)];
-      var cycle_34 = [new Date(2023, 0, 18), new Date(2023, 1, 7)];
-      var cycle_35 = [new Date(2023, 1, 8), new Date(2023, 1, 28)];
-      var cycle_36 = [new Date(2023, 2, 1), new Date(2023, 2, 21)];
-      var cycle_37 = [new Date(2023, 2, 22), new Date(2023, 3, 11)];
-      var cycle_38 = [new Date(2023, 3, 12), new Date(2023, 4, 2)];
-      var cycle_39 = [new Date(2023, 4, 3), new Date(2023, 4, 23)];
-      var cycle_40 = [new Date(2023, 4, 24), new Date(2023, 5, 13)];
-      var cycle_41 = [new Date(2023, 5, 14), new Date(2023, 6, 4)];
-
       return [
         ['Cycle', 'C 27', ...cycle_27],
         ['Cycle', 'C 28', ...cycle_28],
@@ -63,7 +64,7 @@
 
     function showJointRow() {
       return [
-        ['Supertab + FC', 'Deploy Supertab Branding', new Date(2022, 8, 9), new Date(2022, 8, 24)],
+        ['Supertab + FC', 'Deploy Supertab Branding', ...cycle_28],
         ['Supertab + FC', 'Payouts (Legal/PRD)', ...q3_22],
         ['Supertab + FC', 'Payouts (Reporting)', ...q4_22],
         ['Supertab + FC', 'Payouts (Money transfer)', ...q1_23],
@@ -85,17 +86,17 @@
     function showSuperTabExternal() {
       return [
         ['Supertab', 'Streamlined Onboarding (AMO)', new Date(2022, 7, 1), new Date(2022, 9, 15)],
-        ['Supertab', 'Customized Publisher Offerings', new Date(2022, 8, 14), new Date(2022, 9, 25)],
+        ['Supertab', 'Customized Publisher Offerings', cycle_28[start], cycle_29[end]],
         ['Supertab', 'Subdomain Inheritance', ...q4_22],
         ['Supertab', 'Subscriptions PRD/Discovery', ...q4_22],
-
       ];
     }
 
     function showSuperTabInternal() {
       return [
-        ['Supertab', 'Reactification Contribute.to', ...q1_23],
-        ['Supertab', 'CRM / Admin Tools Development', ...q2_23],
+        ['Supertab', 'Contribute.to Resource Center', cycle_28[start], cycle_29[end]],
+        ['Supertab', 'Reactification Contribute.to', ...q4_22],
+        ['Supertab', 'CRM / Admin Tools Development', ...q1_23],
       ];
     }
 
@@ -119,14 +120,10 @@
 
       var options = {
         timeline: { groupByRowLabel: true, barLabelStyle: { fontSize: 14 }, },
-
-
       };
 
       chart.draw(dataTable, options);
     }
-
-
 
   </script>
 </head>
