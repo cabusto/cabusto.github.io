@@ -109,6 +109,12 @@
       dataTable.addColumn({ type: 'string', id: 'Name' });
       dataTable.addColumn({ type: 'date', id: 'Start' });
       dataTable.addColumn({ type: 'date', id: 'End' });
+      dataTable.addRows(
+        [
+        ['Key Dates', 'Beta', new Date(2023, 3,1), new Date(2023, 3,6)],
+        ['Key Dates', 'Today', new Date(), new Date()],
+        ]
+      );
       dataTable.addRows(getQuarters());
       if (internalView) {
         dataTable.addRows(getCycles());
