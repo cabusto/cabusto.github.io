@@ -15,9 +15,10 @@
     const q2_23 = [new Date(2023, 3, 1), new Date(2023, 6, 1)];
     const q3_23 = [new Date(2023, 6, 1), new Date(2023, 9, 1)];
     const q4_23 = [new Date(2023, 9, 1), new Date(2023, 12, 1)];
+    const future = q4_23;
 
-    const cycle_27 = [new Date(2022, 7, 24), new Date(2022, 8, 13)];
-    const cycle_28 = [new Date(2022, 8, 14), new Date(2022, 9, 4)];
+    //const cycle_27 = [new Date(2022, 7, 24), new Date(2022, 8, 13)];
+    //const cycle_28 = [new Date(2022, 8, 14), new Date(2022, 9, 4)];
     const cycle_29 = [new Date(2022, 9, 5), new Date(2022, 9, 25)];
     const cycle_30 = [new Date(2022, 9, 26), new Date(2022, 10, 15)];
     const cycle_31 = [new Date(2022, 10, 16), new Date(2022, 11, 6)];
@@ -32,20 +33,26 @@
     const cycle_40 = [new Date(2023, 4, 24), new Date(2023, 5, 13)];
     const cycle_41 = [new Date(2023, 5, 14), new Date(2023, 6, 4)];
 
+    const keyDateBeta = [new Date(2023, 3, 1), new Date(2023, 3, 6)]; // Week of April 1st
+    const keyDatePaymentFile = [new Date(2023, 0, 16), new Date(2023, 0, 20)]; // Week of Jan 16th
+    const keyDateToday = [new Date(), new Date()];
+
+
     function getQuarters() {
       return [
-        ['Quarter', '2022 Q3', ...q3_22],
+        //['Quarter', '2022 Q3', ...q3_22],
         ['Quarter', '2022 Q4', ...q4_22],
         ['Quarter', '2023 Q1', ...q1_23],
         ['Quarter', '2023 Q2', ...q2_23],
-        ['Quarter', 'Future Development', ...q3_23]
+        ['Quarter', '2023 Q2', ...q3_23],
+        ['Quarter', 'Future Development', ...q4_23]
       ];
     }
 
     function getCycles() {
       return [
-        ['Cycle', 'C 27', ...cycle_27],
-        ['Cycle', 'C 28', ...cycle_28],
+        //['Cycle', 'C 27', ...cycle_27],
+        //['Cycle', 'C 28', ...cycle_28],
         ['Cycle', 'C 29', ...cycle_29],
         ['Cycle', 'C 30', ...cycle_30],
         ['Cycle', 'C 31', ...cycle_31],
@@ -64,29 +71,31 @@
 
     function showJointRow() {
       return [
-        ['Supertab + FC', 'Deploy Supertab Branding', ...cycle_28],
-        ['Supertab + FC', 'Payouts (Legal/PRD)', ...q3_22],
-        ['Supertab + FC', 'Payouts (Reporting)', ...q4_22],
+        // ['Supertab + FC', 'Deploy Supertab Branding ✅', ...cycle_28],
+        // ['Supertab + FC', 'Payouts (Legal/PRD) ✅', ...q3_22],
+        ['Supertab + FC', 'Payouts (Reporting)', cycle_31[0], keyDatePaymentFile[1]],
         ['Supertab + FC', 'Payouts (Money transfer)', ...q1_23],
-        ['Supertab + FC', 'MultiCurrency Support', ...q3_23],
-        ['Supertab + FC', 'Offerwall Customization', ...q3_23],
-        ['Supertab + FC', 'MCM accounts', ...q3_23],
+        ['Supertab + FC', 'MultiCurrency Support', ...future],
+        ['Supertab + FC', 'Offerwall Customization', ...future],
+        ['Supertab + FC', 'MCM accounts', ...future],
       ];
     }
 
     function showFundingChoices() {
       return [
-        ['Funding Choices', 'PIX', new Date(2022, 8, 19), new Date(2022, 09, 31)],
+        ['Funding Choices', 'PIX', ...q4_22],
+        ['Funding Choices', 'PIX launch', q1_23[0], new Date(2023, 1)],
         ['Funding Choices', 'Experiment Control', ...q4_22],
         ['Funding Choices', 'Metering Control', ...q4_22],
-        ['Funding Choices', 'OW Integration w/ Adsense', ...q2_23],
+        ['Funding Choices', 'SPO/AMO Testing', new Date(2022, 11, 1), new Date(2023, 1)],
+        ['Funding Choices', 'OW Integration w/ Adsense', ...future],
       ];
     }
 
     function showSuperTabExternal() {
       return [
-        ['Supertab', 'Streamlined Onboarding (AMO)', new Date(2022, 7, 1), new Date(2022, 9, 15)],
-        ['Supertab', 'Customized Publisher Offerings', cycle_28[start], cycle_29[end]],
+        //['Supertab', 'Streamlined Onboarding (AMO) ✅', new Date(2022, 7, 1), new Date(2022, 10, 15)],
+        //['Supertab', 'Custom Pub Offerings ✅', cycle_28[start], cycle_30[end]],
         ['Supertab', 'Subdomain Inheritance', ...q4_22],
         ['Supertab', 'Subscriptions PRD/Discovery', ...q4_22],
       ];
@@ -94,7 +103,7 @@
 
     function showSuperTabInternal() {
       return [
-        ['Supertab', 'Contribute.to Resource Center', cycle_28[start], cycle_29[end]],
+        //['Supertab', 'Contribute.to Resource Center ✅', cycle_28[start], cycle_29[end]],
         ['Supertab', 'Reactification Contribute.to', ...q4_22],
         ['Supertab', 'CRM / Admin Tools Development', ...q1_23],
       ];
@@ -111,8 +120,9 @@
       dataTable.addColumn({ type: 'date', id: 'End' });
       dataTable.addRows(
         [
-        ['Key Dates', 'Beta', new Date(2023, 3,1), new Date(2023, 3,6)],
-        ['Key Dates', 'Today', new Date(), new Date()],
+          ['Key Dates', 'Beta', ...keyDateBeta],
+          ['Key Dates', 'Payment File', ...keyDatePaymentFile],
+          ['Key Dates', 'Today', ...keyDateToday],
         ]
       );
       dataTable.addRows(getQuarters());
@@ -124,6 +134,7 @@
       dataTable.addRows(showFundingChoices());
       dataTable.addRows(showJointRow());
 
+
       var options = {
         timeline: { groupByRowLabel: true, barLabelStyle: { fontSize: 14 }, },
       };
@@ -132,17 +143,41 @@
     }
 
   </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
   <style>
-    div {
-      min-height: 600px;
+    #timeline {
+      min-height: 620px;
       overflow: hidden;
     }
+
+    #controls {
+      min-height: 20px;
+      height: fit-content;
+      margin: 1em;
+    }
+
+    label {
+      vertical-align: text-top
+    }
   </style>
+
 </head>
 
 <body>
   <h3>Priority Timeline</h3>
+
+  <div id="controls" style="height:fit-content">
+    <input type="checkbox" id="showInternal" name="show">
+    <label for="show">Show Internal View</label>
+  </div>
+
   <div id="timeline" />
+
+
+
+
+
 </body>
 
 </html>
