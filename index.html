@@ -1,6 +1,7 @@
 <html>
 
 <head>
+
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script type="text/javascript">
     let internalView = true;
@@ -17,8 +18,8 @@
     const q4_23 = [new Date(2023, 9, 1), new Date(2023, 12, 1)];
     const future = q4_23;
 
-    //const cycle_27 = [new Date(2022, 7, 24), new Date(2022, 8, 13)];
-    //const cycle_28 = [new Date(2022, 8, 14), new Date(2022, 9, 4)];
+    const cycle_27 = [new Date(2022, 7, 24), new Date(2022, 8, 13)];
+    const cycle_28 = [new Date(2022, 8, 14), new Date(2022, 9, 4)];
     const cycle_29 = [new Date(2022, 9, 5), new Date(2022, 9, 25)];
     const cycle_30 = [new Date(2022, 9, 26), new Date(2022, 10, 15)];
     const cycle_31 = [new Date(2022, 10, 16), new Date(2022, 11, 6)];
@@ -86,8 +87,11 @@
         ['Funding Choices', 'PIX', ...q4_22],
         ['Funding Choices', 'PIX launch', q1_23[0], new Date(2023, 1)],
         ['Funding Choices', 'Experiment Control', ...q4_22],
+        ['Funding Choices', 'Experiment Control Launch', q1_23[0], new Date(2023, 1)],
         ['Funding Choices', 'Metering Control', ...q4_22],
-        ['Funding Choices', 'SPO/AMO Testing', new Date(2022, 11, 1), new Date(2023, 1)],
+        ['Funding Choices', 'Metering Control Launch', q1_23[0], new Date(2023, 1)],
+        ['Funding Choices', 'SPO/AMO Testing', new Date(2022, 11, 1), new Date(2023, 0, 15)],
+        ['Funding Choices', 'SPO/AMO Launch', new Date(2023, 0, 16), new Date(2023, 1, 1)],
         ['Funding Choices', 'OW Integration w/ Adsense', ...future],
       ];
     }
@@ -96,8 +100,10 @@
       return [
         //['Supertab', 'Streamlined Onboarding (AMO) ✅', new Date(2022, 7, 1), new Date(2022, 10, 15)],
         //['Supertab', 'Custom Pub Offerings ✅', cycle_28[start], cycle_30[end]],
-        ['Supertab', 'Subdomain Inheritance', ...q4_22],
+        ['Supertab', 'Subdomain Code', q1_23[0], new Date(2023, 1, 15)],
         ['Supertab', 'Subscriptions PRD/Discovery', ...q4_22],
+        ['Supertab', 'Subscriptions Development', ...q2_23],
+        ['Supertab', 'Multi-Currency', ...q1_23]
       ];
     }
 
@@ -121,7 +127,7 @@
       dataTable.addRows(
         [
           ['Key Dates', 'Beta', ...keyDateBeta],
-          ['Key Dates', 'Payment File', ...keyDatePaymentFile],
+          ['Key Dates', 'Payment File Testing', ...keyDatePaymentFile],
           ['Key Dates', 'Today', ...keyDateToday],
         ]
       );
